@@ -3,7 +3,7 @@ services:
   wordpress:
     image: wordpress:php7.1-apache # https://hub.docker.com/_/wordpress/
     ports:
-      - 127.0.0.1:80:80 # change ip if required
+      - 0.0.0.0:80:80 # change ip if required
     volumes:
       - ./wp-app:/var/www/html # Full wordpress project
       #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
@@ -18,7 +18,7 @@ services:
     networks:
       - wordpress-network
   db:
-    image: mariadb:10 # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    image: mysql:5.7 # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
     ports:
       - 127.0.0.1:3306:3306 # change ip if required
     volumes:
